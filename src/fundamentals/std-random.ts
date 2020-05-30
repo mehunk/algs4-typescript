@@ -16,7 +16,6 @@ export function uniform(a = 0, b?: number): number {
 }
 
 export function shuffle<T = number>(a: T[], lo: number, hi: number): void;
-export function shuffle(a: number[], lo: number, hi: number): void;
 export function shuffle<T = number>(a: T[]): void;
 export function shuffle<T = number>(a: T[], lo = 0, hi = a.length): void {
   lo = lo || 0;

@@ -8,6 +8,7 @@ import InsertionSort from '../src/sorting/insertion';
 import ShellSort from '../src/sorting/shell';
 import MergeSort from '../src/sorting/merge';
 import QuickSort from '../src/sorting/quick';
+import Quick3waySort from '../src/sorting/quick-3way';
 
 const size = 5000;
 const originalArr: number[] = new Array(size);
@@ -63,6 +64,30 @@ describe('sort', () => {
     it('quick sort should sort the array', () => {
       const quickSort = new QuickSort();
       quickSort.sort(arr);
+      assert(isSorted(arr));
+    });
+  });
+
+  describe('quick select', () => {
+    it('quick select should select the kth element', () => {
+      const k = 100;
+      const quickSort = new QuickSort();
+      const num = quickSort.select(arr, 100);
+      assert(num === k);
+    });
+  });
+
+  describe('quick 3 way sort', () => {
+    const arr = new Array(30);
+    beforeAll(() => {
+      for (let i = 0; i < arr.length; i++) {
+        arr[i] = stdRandom.uniform(10) + 1;
+      }
+    });
+
+    it('quick 3 way sort should sort the array', () => {
+      const quick3waySort = new Quick3waySort();
+      quick3waySort.sort(arr);
       assert(isSorted(arr));
     });
   });
